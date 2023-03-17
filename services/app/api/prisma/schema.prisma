@@ -15,7 +15,7 @@ model User {
   username  String    @unique
   password  String
   createdAt DateTime  @default(now())
-  Product   Product[]
+  products  Product[]
 }
 
 model Product {
@@ -24,4 +24,35 @@ model Product {
   createdAt DateTime @default(now())
   user_id   String
   belongsTo User     @relation(fields: [user_id], references: [id])
+  updates   Update[]
+}
+
+enum STATUS {
+  IN_PROGRESS
+  SHIPPED
+  DEPRECATED
+}
+
+model Update {
+  id          String        @id @default(uuid())
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime
+  title       String
+  body        String
+  status      STATUS        @default(IN_PROGRESS)
+  version     String?
+  asset       String?
+  product_id  String
+  belongsTo   Product       @relation(fields: [product_id], references: [id])
+  update_points UpdatePoint[]
+}
+
+model UpdatePoint {
+  id          String   @id @default(uuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime
+  name        String   @postgresDb.VarChar(255)
+  description String
+  update_id   String
+  belongsTo   Update   @relation(fields: [update_id], references: [id])
 }

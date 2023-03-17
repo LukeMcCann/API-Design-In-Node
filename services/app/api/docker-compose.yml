@@ -17,6 +17,7 @@ services:
     container_name: app-api
     volumes:
       - ./src:/opt/app/api/src
+      - ./prisma:/opt/app/api/prisma
       - /opt/app/api/node_modules
     tty: true
     stdin_open: true

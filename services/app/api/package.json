@@ -6,9 +6,12 @@
   "scripts": {
     "dev": "nodemon ./src/index.ts",
     "prisma:pull": "docker exec -ti app-api yarn prisma db pull",
+    "prisma:migrate": "docker exec -ti app-api yarn prisma migrate dev --name $NAME",
+    "prisma:reset": "docker exec -ti app-api yarn prisma migrate --reset",
     "test": "jest"
   },
   "dependencies": {
+    "@prisma/client": "^4.11.0",
     "@types/express": "^4.17.17",
     "@types/jest": "^29.5.0",
     "@types/node": "^18.15.3",

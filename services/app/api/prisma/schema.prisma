@@ -9,3 +9,19 @@ datasource postgresDb {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id        String    @id @default(uuid())
+  username  String    @unique
+  password  String
+  createdAt DateTime  @default(now())
+  Product   Product[]
+}
+
+model Product {
+  id        String   @id @default(uuid())
+  name      String   @postgresDb.VarChar(255)
+  createdAt DateTime @default(now())
+  user_id   String
+  belongsTo User     @relation(fields: [user_id], references: [id])
+}

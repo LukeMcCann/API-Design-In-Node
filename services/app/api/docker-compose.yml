@@ -21,6 +21,7 @@ services:
     tty: true
     stdin_open: true
     environment:
+      DATABASE_URL: ${DATABASE_URL}
       CLIENT_PORT: ${CV_BUILDER_INTERNAL_APi_PORT}
       CHOKIDAR_USEPOLLING: true
       LOCAL_HOST: '0.0.0.0' # Docker local host

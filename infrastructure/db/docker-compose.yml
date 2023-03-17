@@ -18,9 +18,11 @@ services:
     ports:
       - 5432:5432
     environment:
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_DB: ${DB_NAME}
+      PGUSER: ${PGUSER}
+      PGPASSWORD : ${PGPASSWORD}
+      POSTGRES_PASSWORD: ${PGPASSWORD}
+      POSTGRES_USER: ${PGUSER}
+      PGDATABASE: ${PGDATABASE}
       SERVICE_TAGS: dev
       SERVICE_NAME: app-db
     volumes:

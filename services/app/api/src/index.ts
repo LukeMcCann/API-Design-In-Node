@@ -1,9 +1,3 @@
-import express from 'express';
+import { app } from './server';
 
-const app = express();
-
-app.get('/', (req, res) => {
-  res.send('Hello API!');
-});
-
-app.listen(3001, () => console.log('Listening on port: 3001'));
+app.listen(3001);

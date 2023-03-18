@@ -8,3 +8,9 @@ export type ExpressApp = {
 export interface ResponseError extends Error {
 	status?: number,
 }
+
+export interface IpData {
+	ip: string,
+	date: string,
+	timestamp: string,
+}

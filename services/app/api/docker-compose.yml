@@ -22,6 +22,7 @@ services:
     tty: true
     stdin_open: true
     environment:
+      JWT_SECRET: ${JWT_SECRET}
       DATABASE_URL: ${DATABASE_URL}
       CLIENT_PORT: ${CV_BUILDER_INTERNAL_APi_PORT}
       CHOKIDAR_USEPOLLING: true

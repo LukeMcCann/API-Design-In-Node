@@ -1,12 +1,12 @@
 import express from 'express';
-import Router from './router';
-import setupRoutes from './routes';
 import { ExpressApp } from './types/utils';
+import setupRoutes from './routes';
+import router from './router';
 
 const configApp = () => {
 	const app = express() as ExpressApp;
 
-	app.Router = Router;
+	app.Router = router;
 
 	setupRoutes(app);
 

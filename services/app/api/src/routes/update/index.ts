@@ -27,4 +27,5 @@ export default (router: Router) => {
 		res.status(204);
 	});
 
+	return router;
 };

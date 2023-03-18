@@ -1,11 +1,14 @@
 import express from 'express';
+import Router from './router';
+import setupRoutes from './routes';
+import { ExpressApp } from './types/utils';
 
 const configApp = () => {
-	const app = express();
+	const app = express() as ExpressApp;
 
-	app.get('/', (req, res) => {
-		res.status(200).send({ data: 'Hello World' });
-	});
+	app.Router = Router;
+
+	setupRoutes(app);
 
 	return app;
 };

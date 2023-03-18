@@ -4,7 +4,7 @@ export default (router: Router) => {
 
 	router.get('/product', (req, res) => {
 		// get item
-		res.send({ data: 'product' });
+		res.status(500).send({ data: 'product' });
 	});
 
 	router.get('/product/:id', (req, res) => {
